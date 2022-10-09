@@ -1,8 +1,12 @@
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
+import AppContext from '@context/AppContext';
 import '@styles/components/TvGuide.sass';
 
 const TvGuide = ({ setIsOpen }) => {
-	useEffect(() => {}, []);
+	const { channels } = useContext(AppContext);
+	useEffect(() => {
+		console.log(channels);
+	}, []);
 	return (
 		<div className='modal'>
 			<div className='modal-content'>

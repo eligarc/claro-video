@@ -18,6 +18,8 @@ module.exports = {
 			'@layouts': path.resolve(__dirname, 'src/layouts/'),
 			'@styles': path.resolve(__dirname, 'src/styles/'),
 			'@assets': path.resolve(__dirname, 'src/assets/'),
+			'@context': path.resolve(__dirname, 'src/context/'),
+			'@hooks': path.resolve(__dirname, 'src/hooks/'),
 		},
 	},
 	module: {
