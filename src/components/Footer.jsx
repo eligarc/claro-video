@@ -1,10 +1,9 @@
-import '@styles/pages/Footer.sass';
+import '@styles/components/Footer.sass';
 
 const Footer = () => {
 	return (
 		<div className='Footer'>
 			<p className='Footer-title'>eligarc</p>
-			<p className='Footer-copy'>Todos los Izquierdos Reservados</p>
 		</div>
 	);
 };

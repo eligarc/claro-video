@@ -17,6 +17,7 @@ module.exports = {
 			'@pages': path.resolve(__dirname, 'src/pages/'),
 			'@layouts': path.resolve(__dirname, 'src/layouts/'),
 			'@styles': path.resolve(__dirname, 'src/styles/'),
+			'@assets': path.resolve(__dirname, 'src/assets/'),
 		},
 	},
 	module: {
@@ -39,6 +40,10 @@ module.exports = {
 			{
 				test: /\.(s(a|c)ss)$/i,
 				use: ['style-loader', 'css-loader', 'sass-loader'],
+			},
+			{
+				test: /\.(png|jpe?g|gif|svg)$/i,
+				type: 'asset/resource',
 			},
 		],
 	},

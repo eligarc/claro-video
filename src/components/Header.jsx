@@ -1,17 +1,13 @@
 import { Link } from 'react-router-dom';
-import '@styles/pages/Header.sass';
+import '@styles/components/Header.sass';
+import ClaroVideo from '@assets/clarovideo-logo.svg';
 
 const Header = () => {
 	return (
 		<div className='Header'>
-			<h1 className='Header-title'>
-				<Link to='/'>Claro video</Link>
-			</h1>
-			<div className='Header-checkout'>
-				<Link to='/checkout'>
-					<i className='fa-solid fa-cart-shopping'></i>
-				</Link>
-			</div>
+			<Link to='/'>
+				<img src={ClaroVideo} alt='Claro Video' width={90} />
+			</Link>
 		</div>
 	);
 };
