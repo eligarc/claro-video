@@ -9,7 +9,7 @@ const TvGuide = ({ setIsOpen }) => {
 				<button className='close-button' onClick={() => setIsOpen(false)}>
 					<i className='fa-solid fa-xmark'></i>
 				</button>
-				<h1>Hello, I am a modal!</h1>
+				<h1>Canales de televisión</h1>
 			</div>
 		</div>
 	);
