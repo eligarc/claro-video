@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import '../styles/pages/Header.sass';
+import React from "react";
+import { Link } from "react-router-dom";
+import "@styles/pages/Header.sass";
 
 const Header = () => {
 	return (
