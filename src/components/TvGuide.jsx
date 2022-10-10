@@ -1,26 +1,45 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useState, useCallback } from 'react';
 import AppContext from '@context/AppContext';
 import '@styles/components/TvGuide.sass';
-import { formatTimeFromDateTime } from '@utils';
+import Card from '../common/Card';
 
 const TvGuide = ({ setIsOpen }) => {
+	const [tvShow, setTvShow] = useState({});
 	const { channels } = useContext(AppContext);
-	useEffect(() => {
-		console.log(channels);
+
+	const tvEvent = useCallback(item => {
+		console.log('cb:', item);
+		setTvShow(item);
 	}, []);
+
 	return (
 		<div className='modal'>
 			<div className='modal-content'>
 				<button className='close-button' onClick={() => setIsOpen(false)}>
 					<i className='fa-solid fa-xmark'></i>
 				</button>
-				<div className='tv-guide'>
+				{tvShow && Object.keys(tvShow).length > 0 && (
+					<div className='infoEvent'>
+						<h1 className='infoEvent__title'>
+							Nombre del evento y/o Programa - {tvShow.name}
+						</h1>
+						<p className='infoEvent__time'>
+							{tvShow.date_begin} a {tvShow.date_end} {tvShow.duration}
+						</p>
+						<p className='infoEvent__description'>
+							Descripción del evento y/o Programa
+						</p>
+					</div>
+				)}
+				<div className='tvGuide'>
 					<div className='option'>
 						<button className='option__channel'>CANALES</button>
 						<button className='option__categories'>CATEGORIAS</button>
 						<button className='option__favorites'>FAVORITOS</button>
 					</div>
-					<div className='header2'>HOY</div>
+					<div className='today'>
+						<p className='today__label'>HOY</p>
+					</div>
 					<div className='epg'>
 						<div className='epg_channels'>
 							{channels.map(channel => (
@@ -33,15 +52,8 @@ const TvGuide = ({ setIsOpen }) => {
 						<div className='epg_info'>
 							{channels.map(channel => (
 								<div className='row' key={channel.name}>
-									{channel.events.map(event => (
-										<div className='show s30' key={event.date_begin}>
-											<h3>{event.name}</h3>
-											<p>
-												{formatTimeFromDateTime(event.date_begin)} -
-												{formatTimeFromDateTime(event.date_end)}
-											</p>
-											<i className='fa-regular fa-circle-ellipsis'></i>
-										</div>
+									{channel.events.map(item => (
+										<Card item={item} tvEvent={tvEvent} key={item.unix_begin} />
 									))}
 								</div>
 							))}
