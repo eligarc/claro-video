@@ -10,7 +10,7 @@ const useClaroVideoChannels = () => {
 	useEffect(() => {
 		async function getProducts() {
 			const response = await axios(API);
-			setChannels(response.data.response);
+			setChannels(response.data.response.channels);
 		}
 		getProducts();
 	}, []);

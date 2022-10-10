@@ -3,7 +3,7 @@ import { useState } from 'react';
 import TvGuide from '../components/TvGuide';
 
 const Home = () => {
-	const [isOpen, setIsOpen] = useState(false);
+	const [isOpen, setIsOpen] = useState(true);
 	return (
 		<div className='Home'>
 			<div className='Video'>

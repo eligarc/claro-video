@@ -5,23 +5,116 @@
 	top: 0
 	width: 100%
 	height: 100%
-	background-color: rgba(0, 0, 0, 0.5)
 	opacity: 1
 	visibility: visible
 	transform: scale(1.0)
 	transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s
 
-.modal-content
-	position: absolute
-	top: 50%
-	left: 50%
-	transform: translate(-50%, -50%)
-	background-color: var(--white)
-	padding: 1rem 1.5rem
-	width: 100%
-	height: 100%
-	border-radius: 0.5rem
-	background-color: rgba(0, 0, 0, 0.5)
+	.modal-content
+		position: absolute
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%)
+		background-color: var(--white)
+		padding: 1rem 1.5rem
+		width: 100%
+		height: 100%
+		border-radius: 0.5rem
+		background-color: rgba(0, 0, 0, 0.5)
+		-ms-overflow-style: none /* for Internet Explorer, Edge */
+		scrollbar-width: none /* for Firefox */
+		::-webkit-scrollbar
+			display: none
+		.tv-guide
+			margin: 25rem 0
+			.option
+				display: flex
+				align-items: center
+				justify-content: flex-end
+				width: 100%
+				height: 3.5rem
+				background-color: rgba(0, 0, 0, 0.1)
+				> button
+					background-color: var(--dark)
+					color: var(--white)
+					font-size: var(--ssm)
+					border-radius: 0.7rem
+					border: none
+					margin: 0 0.5rem
+					padding: 0.6rem 1.4rem
+					font-weight: 700
+					color: var(--white)
+					font-family: Roboto
+					&:hover
+						background-color: var(--black)
+						cursor: pointer
+			.header2
+				width: 100%
+				height: 30px
+				background: #16a085
+			.epg
+				width: 100%
+				height: 450px
+				display: block
+				float: left
+				position: relative
+				border: 1px solid red
+				overflow: hidden
+				overflow-y: scroll
+				.epg_channels
+					.channel
+						display: flex
+						align-items: center
+						justify-content: space-around
+						float: left
+						clear: both
+						width: 9rem
+						height: 6.5rem
+						background-color: var(--dark)
+						color: var(--white)
+						margin: 3px 0 5px
+						border-radius: 0 6px 6px 0
+						border: none
+						> h2
+							font-family: Roboto
+				.epg_info
+					position: absolute
+					left: 152px
+					right: 0
+					overflow: hidden
+					overflow-x: scroll
+					.row
+						clear: both
+						height: 112px
+						float: left
+						min-width: 2400%
+						.show
+							float: left
+							height: 100%
+							background: #fff
+							display: block
+							outline: 1px solid var(--light-gray)
+							background-color: var(--dark)
+							padding: 0.5rem
+							> p, h3
+								font-family: Roboto
+								color: var(--white)
+							> p
+								font-weight: 700
+								font-size: var(--sm)
+							&:hover
+								background-color: var(--dark-light)
+								cursor: pointer
+						.s15
+							width: 1.04%
+						.s30
+							width: 2.08%
+						.s45
+							width: 3.125%
+						.s60
+							width: 4.16%
+						.s90
+							width: 6.25%
 
 .close-button
 	float: right
