@@ -4,6 +4,7 @@ import NotFound from '@pages/NotFound';
 import MainLayout from '@layouts/MainLayout';
 import AppContext from '@context/AppContext';
 import useClaroVideoChannels from '@hooks/useClaroVideoChannels';
+
 const App = () => {
 	const initialState = useClaroVideoChannels();
 	const isEmpty = Object.keys(initialState.channels).length;
@@ -21,7 +22,7 @@ const App = () => {
 					</BrowserRouter>
 				</AppContext.Provider>
 			) : (
-				<h1>Cargando...</h1>
+				<h1>Cargando página...</h1>
 			)}
 		</>
 	);

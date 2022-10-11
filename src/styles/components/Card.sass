@@ -1,0 +1,35 @@
+.show
+	color: var(--white)
+	float: left
+	height: 100%
+	display: block
+	outline: 1px solid var(--light-gray)
+	background-color: var(--dark)
+	padding: 0.5rem
+	&:hover
+		background-color: var(--dark-light)
+		cursor: pointer
+	.show__names
+		color: var(--white)
+		.name
+			font-size: var(--lg)
+			font-weight: 700
+			margin: 0
+.s15
+	width: 1.04%
+.s30
+	width: 2.08%
+.s45
+	width: 3.125%
+.s60
+	width: 4.16%
+.s90
+	width: 6.25%
+
+@media only screen and (min-width: 320px) and (max-width: 576px)
+	.show
+		.show__names
+			.name
+				font-size: var(--sm)
+				font-weight: 700
+				margin: 0

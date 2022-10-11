@@ -1,29 +1,32 @@
 import { formatTimeFromDateTime } from '@utils';
 import { memo } from 'react';
+import '@styles/components/Card.sass';
 
 export default memo(function Card({ item, tvEvent }) {
 	return (
 		<div
 			className='show s30'
 			onMouseEnter={e => {
-				console.log('Event:MouseEnter');
 				e.stopPropagation();
 				e.preventDefault();
 				tvEvent(item);
 			}}
 			onMouseLeave={e => {
-				console.log('Event:MouseLeave');
 				e.stopPropagation();
 				e.preventDefault();
 				tvEvent({});
 			}}
 		>
-			<h3>{item.name}</h3>
-			<p>
-				{formatTimeFromDateTime(item.date_begin)} -
-				{formatTimeFromDateTime(item.date_end)}
-			</p>
-			<i className='fa-regular fa-circle-ellipsis'></i>
+			<div className='show__names'>
+				<p className='name'>{item.name}</p>
+				<small>
+					{formatTimeFromDateTime(item.date_begin)} -{' '}
+					{formatTimeFromDateTime(item.date_end)}
+				</small>
+			</div>
+			<div className='show__option'>
+				<i className='fa-regular fa-circle-ellipsis'></i>
+			</div>
 		</div>
 	);
 });

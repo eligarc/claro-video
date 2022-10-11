@@ -1,7 +1,6 @@
-export function formatTimeFromDateTime(date) {
-	return new Date(date).toLocaleTimeString('en-US', {
-		hour12: false,
-		hour: 'numeric',
-		minute: 'numeric',
-	});
+import { format } from 'date-fns';
+
+export function formatTimeFromDateTime(date, isDescription = false) {
+	const formatedDate = format(new Date(date), 'HH:mm');
+	return isDescription ? `${formatedDate.replace(':', '.')} hs` : formatedDate;
 }

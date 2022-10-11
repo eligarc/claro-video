@@ -9,7 +9,7 @@
 	visibility: visible
 	transform: scale(1.0)
 	transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s
-
+	font-family: Roboto
 	.modal-content
 		position: absolute
 		top: 50%
@@ -25,10 +25,13 @@
 		scrollbar-width: none /* for Firefox */
 		::-webkit-scrollbar
 			display: none
-		.infoEvent
-			padding: 1rem 1rem 1rem 32px
+		.containerInfo
+			display: grid
+			grid-template-columns: 50% auto
+			grid-template-rows: auto
 			color: var(--white)
-			font-family: Roboto
+			.infoEvent
+				padding: 1rem .3rem 0
 		.tvGuide
 			position: absolute
 			top: 45vh
@@ -38,14 +41,14 @@
 				display: flex
 				align-items: center
 				justify-content: flex-end
-				width: 100%
+				padding: 0 1rem 0
 				height: 3.5rem
 				background-color: rgba(0, 0, 0, 0.1)
 				> button
 					background-color: var(--dark)
 					color: var(--white)
 					font-size: var(--ssm)
-					border-radius: 0.7rem
+					border-radius: 0.3rem
 					border: none
 					margin: 0 0.5rem
 					padding: 0.6rem 1.4rem
@@ -55,38 +58,57 @@
 					&:hover
 						background-color: var(--black)
 						cursor: pointer
-			.header2
-				width: 100%
-				height: 30px
-				background: #16a085
+			.today
+				display: grid
+				grid-template-columns: 10% auto 10%
+				grid-template-rows: 3.5rem auto
+				color: var(--white)
+				font-family: Roboto
+				background-color: var(--dark)
+				.today__label
+					display: grid
+					place-items: center
+				.today__arrow
+					display: flex
+					align-items: center
+					justify-content: center
+					> button
+						background-color: var(--dark)
+						color: var(--white)
+						font-size: 30px
+						border-radius: 50%
+						border: none
+						margin: .3rem
+						padding: 0
+						font-weight: bold
+						&:hover
+							background-color: var(--black)
+							cursor: pointer
 			.epg
 				width: 100%
 				height: 450px
 				display: block
 				float: left
 				position: relative
-				border: 1px solid red
 				overflow: hidden
 				overflow-y: scroll
-				.epg_channels
+				.epg__channels
 					.channel
 						display: flex
 						align-items: center
-						justify-content: space-around
+						justify-content: flex-end
 						float: left
 						clear: both
-						width: 9rem
+						width: 10rem
 						height: 6.5rem
 						background-color: var(--dark)
 						color: var(--white)
 						margin: 3px 0 5px
 						border-radius: 0 6px 6px 0
 						border: none
-						> h2
-							font-family: Roboto
-				.epg_info
+				.epg__info
 					position: absolute
-					left: 152px
+					left: 165px
 					right: 0
 					overflow: hidden
 					overflow-x: scroll
@@ -95,47 +117,41 @@
 						height: 112px
 						float: left
 						min-width: 2400%
-						.show
-							float: left
-							height: 100%
-							background: #fff
-							display: block
-							outline: 1px solid var(--light-gray)
-							background-color: var(--dark)
-							padding: 0.5rem
-							> p, h3
-								font-family: Roboto
-								color: var(--white)
-							> p
-								font-weight: 700
-								font-size: var(--sm)
-							&:hover
-								background-color: var(--dark-light)
-								cursor: pointer
-						.s15
-							width: 1.04%
-						.s30
-							width: 2.08%
-						.s45
-							width: 3.125%
-						.s60
-							width: 4.16%
-						.s90
-							width: 6.25%
-
-.close-button
-	float: right
-	width: 2.5rem
-	line-height: 2.5rem
-	font-size: var(--lg)
-	text-align: center
-	cursor: pointer
-	border-radius: 1rem
-	color: var(--white)
-	background-color: transparent
-	border: none
+	.close-button
+		float: right
+		width: 2.5rem
+		line-height: 2.5rem
+		font-size: var(--xlg)
+		text-align: center
+		cursor: pointer
+		border-radius: 1rem
+		color: var(--white)
+		background-color: transparent
+		border: none
 
 .close-button
 	&:hover
 		transition-duration: .6s
-		transform: scale(1.5)
+		transform: scale(1.2)
+
+@media only screen and (min-width: 320px) and (max-width: 576px)
+	.modal
+		.modal-content
+			.tvGuide
+				.option
+					padding: 0
+					justify-content: center
+					> button
+						margin: 0 0.2rem
+						padding: 0.3rem 0.7rem
+				.today
+					grid-template-columns: auto
+					padding: 0 1.2rem 0
+					.today__arrow
+						justify-content: space-between
+			.containerInfo
+				display: grid
+				grid-template-columns: auto
+				font-size: var(--ssm)
+				grid-template-rows: auto
+				color: var(--white)

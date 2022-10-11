@@ -1,6 +1,6 @@
-import '@styles/pages/Home.sass';
 import { useState } from 'react';
 import TvGuide from '../components/TvGuide';
+import '@styles/pages/Home.sass';
 
 const Home = () => {
 	const [isOpen, setIsOpen] = useState(true);
