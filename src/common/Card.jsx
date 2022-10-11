@@ -1,5 +1,5 @@
-import { formatTimeFromDateTime } from '@utils';
 import { memo } from 'react';
+import { formatTimeFromDateTime } from '@utils';
 import '@styles/components/Card.sass';
 
 export default memo(function Card({ item, tvEvent }) {

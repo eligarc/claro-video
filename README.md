@@ -9,4 +9,5 @@ DESKTOP:
 <br><br>
 
 MOBILE:
+
 ![Captura de pantalla 2022-10-10 232239](https://user-images.githubusercontent.com/33938329/194997318-b304f053-105d-46a0-9edd-27fd44db5ee2.png)

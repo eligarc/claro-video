@@ -1,13 +1,18 @@
 import { useContext, useState, useCallback, useRef } from 'react';
+import { format } from 'date-fns';
 import AppContext from '@context/AppContext';
 import Card from '../common/Card';
 import { formatTimeFromDateTime } from '@utils';
 import '@styles/components/TvGuide.sass';
+import { rangeNumbers } from '../utils';
 
 const TvGuide = ({ setIsOpen }) => {
+	const time = format(new Date(), 'HH');
+	let parseTime = time / 1;
+	const timestamp = rangeNumbers(1, 24 - time, 1);
 	const [tvShow, setTvShow] = useState({});
-	const { channels } = useContext(AppContext);
 	const epgInfo = useRef(null);
+	const { channels } = useContext(AppContext);
 
 	const scroll = scrollOffset => {
 		epgInfo.current.scrollLeft += scrollOffset;
@@ -45,12 +50,25 @@ const TvGuide = ({ setIsOpen }) => {
 					</div>
 					<div className='today'>
 						<div className='today__label'>HOY</div>
-						<div className='today__date'></div>
+						<div
+							className='today__date'
+							style={{
+								display: 'grid',
+								gridTemplateColumns: timestamp.map(item => 'auto').join(' '),
+								placeItems: 'center',
+							}}
+						>
+							{timestamp.map(item => (
+								<div className='today__date__item' key={item}>
+									{(parseTime += 1)}:00
+								</div>
+							))}
+						</div>
 						<div className='today__arrow'>
-							<button onClick={() => scroll(-300)}>
+							<button onClick={() => scroll(-310)}>
 								<i className='fa-solid fa-circle-arrow-left'></i>
 							</button>
-							<button onClick={() => scroll(300)}>
+							<button onClick={() => scroll(310)}>
 								<i className='fa-solid fa-circle-arrow-right'></i>
 							</button>
 						</div>

@@ -60,7 +60,7 @@
 						cursor: pointer
 			.today
 				display: grid
-				grid-template-columns: 10% auto 10%
+				grid-template-columns: 11% auto 10%
 				grid-template-rows: 3.5rem auto
 				color: var(--white)
 				font-family: Roboto
@@ -83,6 +83,8 @@
 						font-weight: bold
 						&:hover
 							background-color: var(--black)
+							transition-duration: .7s
+							transform: scale(1.4)
 							cursor: pointer
 			.epg
 				width: 100%
@@ -147,6 +149,9 @@
 				.today
 					grid-template-columns: auto
 					padding: 0 1.2rem 0
+					.today__date
+						.today__date__item
+							display: none
 					.today__arrow
 						justify-content: space-between
 			.containerInfo

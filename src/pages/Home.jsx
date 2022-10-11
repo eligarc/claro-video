@@ -3,7 +3,7 @@ import TvGuide from '../components/TvGuide';
 import '@styles/pages/Home.sass';
 
 const Home = () => {
-	const [isOpen, setIsOpen] = useState(true);
+	const [isOpen, setIsOpen] = useState(false);
 	return (
 		<div className='Home'>
 			<div className='Video'>
